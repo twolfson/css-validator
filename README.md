@@ -8,23 +8,22 @@ This was created to validate CSS inside of the [json2css][] test suite.
 
 [json2css]: https://github.com/twolfson/json2css
 
-```js
-var validateCss = require('css-validator');
-validateCss({text: 'a { color: blue; }'}, function (err, validationErrors) {
-  assert.strictEqual(validationErrors.length, 0);
-});
-```
-
 ## Getting Started
 Install the module with: `npm install css-validator`
 
-```javascript
-var css_validator = require('css-validator');
-css_validator.awesome(); // "awesome"
+```js
+var validateCss = require('css-validator');
+validateCss({text: 'a { color: blue; }'}, function (err, data) {
+  assert.strictEqual(data.validity, true);
+  assert.deepEqual(data.errors, []);
+  assert.deepEqual(data.warnings, []);
+});
 ```
 
 ## Documentation
-_(Coming soon)_
+`css-validator` returns a single function as its `module.exports`
+
+### `validateCss(options, cb)`
 
 ## Examples
 _(Coming soon)_
