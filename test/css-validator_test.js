@@ -29,7 +29,7 @@ describe('A valid CSS file', function () {
   });
 });
 
-describe.only('A invalid CSS file', function () {
+describe('A invalid CSS file', function () {
   before(function () {
     this.css = fs.readFileSync(__dirname + '/test-files/invalid.css', 'utf8');
   });
