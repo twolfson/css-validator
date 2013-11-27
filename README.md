@@ -1,6 +1,19 @@
 # css-validator [![Build status](https://travis-ci.org/twolfson/css-validator.png?branch=master)](https://travis-ci.org/twolfson/css-validator)
 
-Validate CSS via W3C's service
+Validate CSS via [W3C's service][jigsaw]
+
+[jigsaw]: http://jigsaw.w3.org/css-validator/
+
+This was created to validate CSS inside of the [json2css][] test suite.
+
+[json2css]: https://github.com/twolfson/json2css
+
+```js
+var validateCss = require('css-validator');
+validateCss({text: 'a { color: blue; }'}, function (err, validationErrors) {
+  assert.strictEqual(validationErrors.length, 0);
+});
+```
 
 ## Getting Started
 Install the module with: `npm install css-validator`

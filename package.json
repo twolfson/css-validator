@@ -28,7 +28,9 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "request": "~2.27.0"
+  },
   "devDependencies": {
     "mocha": "~1.11.0",
     "grunt": "~0.4.1",
