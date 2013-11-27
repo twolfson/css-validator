@@ -29,7 +29,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "request": "~2.27.0"
+    "request": "~2.27.0",
+    "obj-extend": "~0.1.0"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
