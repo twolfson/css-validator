@@ -22,7 +22,7 @@ describe('A valid CSS file', function () {
     runValidateCss();
 
     it('has no errors', function () {
-      assert.strictEqual(validationErrors.length, 0);
+      assert.strictEqual(this.validationErrors.length, 0);
     });
   });
 });
@@ -36,7 +36,7 @@ describe('A invalid CSS file', function () {
     runValidateCss();
 
     it('has expected errors', function () {
-      assert.deepEqual(validationErrors, ['abc']);
+      assert.deepEqual(this.validationErrors, ['abc']);
     });
   });
 });
