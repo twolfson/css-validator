@@ -5,9 +5,9 @@ var validateCss = require('../');
 function runValidateCss() {
   before(function (done) {
     var that = this;
-    validateCss(this.css, function (err, validationErrors) {
+    validateCss(this.css, function (err, data) {
       that.err = err;
-      that.validationErrors = validationErrors;
+      that.data = data;
       done();
     });
   });
@@ -22,7 +22,9 @@ describe('A valid CSS file', function () {
     runValidateCss();
 
     it('has no errors', function () {
-      assert.strictEqual(this.validationErrors.length, 0);
+      assert.strictEqual(this.data.validity, true);
+      assert.deepEqual(this.data.errors, []);
+      assert.deepEqual(this.data.warnings, []);
     });
   });
 });
@@ -35,8 +37,20 @@ describe('A invalid CSS file', function () {
   describe('when validated', function () {
     runValidateCss();
 
-    it('has expected errors', function () {
-      assert.deepEqual(this.validationErrors, ['abc']);
+    it('was not valid errors', function () {
+      assert.strictEqual(this.data.validity, false);
+    });
+
+    it('has an expected error', function () {
+      var errors = this.data.errors;
+      assert.strictEqual(errors.length, 1);
+      assert.(errors[0], ['abc']);
+    });
+
+    it('has an expected warning', function () {
+      var warnings = this.data.warnings;
+      assert.strictEqual(warnings.length, 1);
+      assert.deepEqual(warnings[0], ['abc']);
     });
   });
 });
