@@ -42,9 +42,54 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
         - If set to `no`, no warnings will be returned
         - If set to `0`, less warnings will be returned
         - If set to `1` or `2`, more warnings will be returned
+- cb `Function` - Error first callback with `function (err, data) {}` signature
+    - err `null|Error` - If there was a connetivity error, this will be it
+    - data `null|Object` - Container for response from [jigsaw][]
+        - validity `Boolean` - If there were no errors, this will be `true`. Otherwise, it is `false`.
+        - errors `Object[]` - Array of errors
+            - These are dynamically parsed and not guaranteed to exist. The service only guarantees `line`, `level`, and `message`.
+                - Reference: http://jigsaw.w3.org/css-validator/api.html#soap12message
+            - line `Number` - Line where error occurred
+            - errortype `String`
+            - context `String`
+            - errorsubtype `String`
+            - skippedstring `String` - Content where error occurred
+            - message `String` - Human readable information about the error and why it occurred
+        - warnings `Object[]` - Array of warnings
+            - line `Number` - Line where error occurred
+            - level `Number` - Intensity of the warning. See `options.warning` for more info
+            - message `String` - Human readable information about the warning and why it occurred
 
 ## Examples
-_(Coming soon)_
+```js
+var cssValidate = require('css-validate');
+var css = [
+  "body {",
+  "  background: url(ab'cd');",
+  "  -moz-box-sizing: content-box;",
+  "}",
+].join('\n');
+
+cssValidate(css, function (err, data) {
+  console.log(data);
+  /*
+  { validity: false,
+  errors:
+   [ { line: '2',
+       errortype: 'parse-error',
+       context: ' body ',
+       errorsubtype: '\n                                exp\n                            ',
+       skippedstring: '\n                                url(ab \'cd\')\n                            ',
+       message: '\n        \n                                Value Error :  background (nullcolors.html#propdef-background)\n        \n                                url(ab \'cd\') is not a background-color value : \n                            ',
+       error: '\n                        ' } ],
+  warnings:
+   [ { line: '3',
+       level: '0',
+       message: 'Property -moz-box-sizing is an unknown vendor extension',
+       warning: '\n                        ' } ] }
+  */
+});
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
