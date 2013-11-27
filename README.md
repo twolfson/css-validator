@@ -65,8 +65,8 @@ If `cb` is not provided, an `EventEmitter` will be returned to you. It will emit
 - error `Error` - Error occurring during connection or parsing of response
 - finish - Emitted when we have finished parsing the input
 - validity `Boolean` - Event for `data.validity` with `data.validity` as its data
-- validation-error `Objet` - Event for a new `data.errors` object with the error as its argument
-- validation-warning `Objet` - Event for a new `data.warnings` object with the warning as its argument
+- validation-error `Object` - Event for a new `data.errors` object with the error as its argument
+- validation-warning `Object` - Event for a new `data.warnings` object with the warning as its argument
 
 ## Examples
 ```js
