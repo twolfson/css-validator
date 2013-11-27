@@ -42,7 +42,7 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
         - If set to `no`, no warnings will be returned
         - If set to `0`, less warnings will be returned
         - If set to `1` or `2`, more warnings will be returned
-- cb `Function` - Error first callback with `function (err, data) {}` signature
+- cb `null|Function` - Error first callback with `function (err, data) {}` signature
     - err `null|Error` - If there was a connetivity error, this will be it
     - data `null|Object` - Container for response from [jigsaw][]
         - validity `Boolean` - If there were no errors, this will be `true`. Otherwise, it is `false`.
@@ -59,6 +59,14 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
             - line `Number` - Line where error occurred
             - level `Number` - Intensity of the warning. See `options.warning` for more info
             - message `String` - Human readable information about the warning and why it occurred
+
+If `cb` is not provided, an `EventEmitter` will be returned to you. It will emit the following events
+
+- error `Error` - Error occurring during connection or parsing of response
+- validity `Boolean` - Same as `data.validity`
+- 'validation-error' `Boolean` - Same as `data.validity`
+
+[writable stream]: https://github.com/isaacs/readable-stream#class-streamwritable
 
 ## Examples
 ```js
