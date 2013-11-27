@@ -31,8 +31,7 @@
   "dependencies": {
     "request": "~2.27.0",
     "obj-extend": "~0.1.0",
-    "sax": "~0.5.5",
-    "trumpet": "~1.6.3"
+    "sax": "~0.5.5"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
