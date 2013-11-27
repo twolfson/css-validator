@@ -63,12 +63,10 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
 If `cb` is not provided, an `EventEmitter` will be returned to you. It will emit the following events
 
 - error `Error` - Error occurring during connection or parsing of response
-- end - Emitted when we have finished parsing the input
+- finish - Emitted when we have finished parsing the input
 - validity `Boolean` - Event for `data.validity` with `data.validity` as its data
 - validation-error `Objet` - Event for a new `data.errors` object with the error as its argument
 - validation-warning `Objet` - Event for a new `data.warnings` object with the warning as its argument
-
-[writable stream]: https://github.com/isaacs/readable-stream#class-streamwritable
 
 ## Examples
 ```js
