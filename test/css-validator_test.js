@@ -1,11 +1,23 @@
-var css_validator = require('../lib/css-validator.js');
+var validateCss = require('../');
 
-describe('css-validator', function () {
+describe('A valid CSS file', function () {
   before(function () {
-
+    this.css = fs.readFileSync(__dirname + '/test-files/valid.css', 'utf8');
   });
 
-  it('', function () {
+  describe('when validated', function () {
+    // TODO: Move to common fn
+    before(function (done) {
+      var that = this;
+      validateCss(this.css, function (err, validationErrors) {
+        that.err = err;
+        that.validationErrors = validationErrors;
+        done();
+      });
+    });
 
+    it('has no errors', function () {
+      assert.strictEqual(validationErrors.length, 0);
+    });
   });
 });
