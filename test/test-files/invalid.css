@@ -1,3 +1,5 @@
 body {
   background: url(ab'cd');
+  -moz-box-sizing: content-box;
 }
+
