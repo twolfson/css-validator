@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "request": "~2.27.0",
-    "obj-extend": "~0.1.0"
+    "obj-extend": "~0.1.0",
+    "xml": "0.0.10"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
