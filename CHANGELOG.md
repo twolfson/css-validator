@@ -1,4 +1,6 @@
 # css-validator changelog
+0.5.0 - Broke up code further, moved XmlParser and ValidationStream to Duplex, and emitting result as `data` event
+
 0.4.0 - Implemented CssValidator as a Writable stream
 
 0.3.0 - Moved from GET to POST for requests. Fixes #1
