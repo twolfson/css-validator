@@ -6,7 +6,6 @@ function runValidateCss() {
   before(function (done) {
     var that = this;
     validateCss(this.css, function (err, data) {
-      console.log(err, data);
       that.err = err;
       that.data = data;
       done();
