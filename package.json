@@ -33,7 +33,8 @@
     "obj-extend": "~0.1.0",
     "sax": "~0.5.5",
     "readable-stream": "~1.1.9",
-    "fwd": "~0.2.2"
+    "fwd": "~0.2.2",
+    "form-data": "~0.1.2"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
