@@ -1,5 +1,6 @@
 var fs = require('fs');
 var expect = require('chai').expect;
+var nock = require('nock');
 var validateCss = require('../');
 
 function runValidateCss() {
@@ -10,6 +11,17 @@ function runValidateCss() {
       that.data = data;
       done();
     });
+  });
+}
+
+if (process.env.FIXTURE_HTTP) {
+  before(function () {
+    this._invalidXml = nock('http://jigsaw.w3.org')
+                        .post('/css-validator/validator')
+                        .reply(200, fs.readFileSync(__dirname + '/test-files/invalid.xml', 'utf8'));
+  });
+  after(function () {
+    this._invalidXml.done();
   });
 }
 
