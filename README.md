@@ -67,7 +67,7 @@ If you have not provided `options.uri` or `options.text`, you can `.write` + `.e
 The stream will emit the following events:
 
 - error `Error` - Error occurring during connection or parsing of response
-- finish - Emitted when we have finished parsing the input
+- end - Emitted when we have finished parsing the input and outputting events
 - validity `Boolean` - Event for `data.validity` with `data.validity` as its data
 - validation-error `Object` - Event for a new `data.errors` object with the error as its argument
 - validation-warning `Object` - Event for a new `data.warnings` object with the warning as its argument
