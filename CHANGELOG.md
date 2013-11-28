@@ -1,4 +1,6 @@
 # css-validator changelog
+0.4.0 - Implemented CssValidator as a Writable stream
+
 0.3.0 - Moved from GET to POST for requests. Fixes #1
 
 0.2.0 - Added ability to get event emitter
