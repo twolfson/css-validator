@@ -60,19 +60,22 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
             - level `Number` - Intensity of the warning. See `options.warning` for more info
             - message `String` - Human readable information about the warning and why it occurred
 
-If `cb` is not provided, a [`WritableStream`][] will be returned to you.
+If `cb` is not provided, a [`DuplexStream`][] will be returned to you.
 
 If you have not provided `options.uri` or `options.text`, you can `.write` + `.end` OR `.pipe` to the stream CSS to validate.
+
+Additionally, you can use `.read` and `.pipe` to get the `data` returned by `cb`.
 
 The stream will emit the following events:
 
 - error `Error` - Error occurring during connection or parsing of response
+- data `Object` - Same as `data` sent to `cb`. Emitted once.
 - end - Emitted when we have finished parsing the input and outputting events
 - validity `Boolean` - Event for `data.validity` with `data.validity` as its data
 - validation-error `Object` - Event for a new `data.errors` object with the error as its argument
 - validation-warning `Object` - Event for a new `data.warnings` object with the warning as its argument
 
-[`WritableStream`]: https://github.com/isaacs/readable-stream#class-streamwritable
+[`DuplexStream`]: https://github.com/isaacs/readable-stream#class-streamduplex
 
 ## Examples
 ```js
