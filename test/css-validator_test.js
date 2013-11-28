@@ -13,11 +13,6 @@ function runValidateCss() {
     });
   });
 }
-function wait(ms) {
-  before(function (done) {
-    setTimeout(done, ms);
-  });
-}
 
 if (process.env.FIXTURE_HTTP) {
   before(function () {
@@ -52,8 +47,6 @@ describe('A invalid CSS file', function () {
   });
 
   describe('when validated', function () {
-    // Wait a seconds for the w3c rate limiting
-    wait(1000);
     runValidateCss();
 
     it('was not valid errors', function () {
