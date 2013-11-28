@@ -41,7 +41,7 @@ describe('A invalid CSS file', function () {
       expect(this.data.validity).to.equal(false);
     });
 
-    it('has an expected error', function () {
+    it.only('has an expected error', function () {
       var errors = this.data.errors;
       expect(errors.length).to.equal(1);
       expect(errors[0].message).to.contain('background-color');
