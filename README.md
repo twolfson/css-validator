@@ -30,8 +30,8 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
     - w3cUrl `String` - URL to validate against. Default is http://jigsaw.w3.org/css-validator/validator
     - The following options from the validator itself
         - Reference: http://jigsaw.w3.org/css-validator/manual.html#api
-    - uri `String` - URL of document to validate. CSS and HTML documents are allowed
-    - text `String` - CSS to validate
+    - uri `null|String` - URL of document to validate. CSS and HTML documents are allowed
+    - text `null|String` - CSS to validate
     - usermedium `String` - Medium where the CSS will be used (e.g. `screen`, `print`, `braille`). Default is `all`.
     - profile `String` - CSS profile to use for validation. Default is `css3`.
         - Possible values are
@@ -60,13 +60,19 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
             - level `Number` - Intensity of the warning. See `options.warning` for more info
             - message `String` - Human readable information about the warning and why it occurred
 
-If `cb` is not provided, an `EventEmitter` will be returned to you. It will emit the following events
+If `cb` is not provided, a [`WritableStream`][] will be returned to you.
+
+If you have not provided `options.uri` or `options.text`, you can `.write` + `.end` OR `.pipe` to the stream CSS to validate.
+
+The stream will emit the following events:
 
 - error `Error` - Error occurring during connection or parsing of response
 - finish - Emitted when we have finished parsing the input
 - validity `Boolean` - Event for `data.validity` with `data.validity` as its data
 - validation-error `Object` - Event for a new `data.errors` object with the error as its argument
 - validation-warning `Object` - Event for a new `data.warnings` object with the warning as its argument
+
+[`WritableStream`]: https://github.com/isaacs/readable-stream#class-streamwritable
 
 ## Examples
 ```js
