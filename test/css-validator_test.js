@@ -7,7 +7,7 @@ var validateCss = require('../');
 before(function () {
   this.fakeJigsaw = express().use(eightTrack({
     url: 'http://jigsaw.w3.org',
-    fixtureDir: __dirname + 'test-files/fake-jigsaw/'
+    fixtureDir: __dirname + '/test-files/fake-jigsaw/'
   })).listen(1337);
 });
 after(function (done) {
@@ -17,22 +17,14 @@ after(function (done) {
 function runValidateCss() {
   before(function (done) {
     var that = this;
-    validateCss(this.css, function (err, data) {
+    validateCss({
+      text: this.css,
+      w3cUrl: 'http://localhost:1337/css-validator/validator'
+    }, function (err, data) {
       that.err = err;
       that.data = data;
       done();
     });
-  });
-}
-
-if (process.env.FIXTURE_HTTP) {
-  before(function () {
-    this._invalidXml = nock('http://jigsaw.w3.org')
-                        .post('/css-validator/validator')
-                        .reply(200, fs.readFileSync(__dirname + '/test-files/invalid.xml', 'utf8'));
-  });
-  after(function () {
-    this._invalidXml.done();
   });
 }
 
