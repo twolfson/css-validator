@@ -1,7 +1,18 @@
 var fs = require('fs');
 var expect = require('chai').expect;
-var nock = require('nock');
+var express = require('express');
+var eightTrack = require('eight-track');
 var validateCss = require('../');
+
+before(function () {
+  this.fakeJigsaw = express().use(eightTrack({
+    url: 'http://jigsaw.w3.org',
+    fixtureDir: __dirname + 'test-files/fake-jigsaw/'
+  })).listen(1337);
+});
+after(function (done) {
+  this.fakeJigsaw.close(done);
+});
 
 function runValidateCss() {
   before(function (done) {
