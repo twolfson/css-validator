@@ -42,7 +42,8 @@
     "chai": "~1.8.1",
     "nock": "~0.23.0",
     "express": "~3.4.8",
-    "eight-track": "~0.2.0"
+    "eight-track": "~0.2.0",
+    "underscore": "~1.5.2"
   },
   "keywords": [
     "css",
