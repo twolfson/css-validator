@@ -9,8 +9,9 @@ before(function () {
     url: 'http://jigsaw.w3.org',
     fixtureDir: __dirname + '/test-files/fake-jigsaw/',
     normalizeFn: function (info) {
-      info.headers['content-type'].replace(/(\-+)\d+/, '$1somenumber');
-      info.body.replace(/(\-+)\d+/g, '$1somenumber');
+      info.headers['content-type'] = info.headers['content-type'].replace(/(\-+)\d+/, '$1somenumber');
+      info.body = info.body.replace(/(\-+)\d+/g, '$1somenumber');
+      console.log(info);
     }
   })).listen(1337);
 });
