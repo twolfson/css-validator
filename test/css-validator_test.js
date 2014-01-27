@@ -7,7 +7,11 @@ var validateCss = require('../');
 before(function () {
   this.fakeJigsaw = express().use(eightTrack({
     url: 'http://jigsaw.w3.org',
-    fixtureDir: __dirname + '/test-files/fake-jigsaw/'
+    fixtureDir: __dirname + '/test-files/fake-jigsaw/',
+    normalizeFn: function (info) {
+      info.headers['content-type'].replace(/(\-+)\d+/, '$1somenumber');
+      info.body.replace(/(\-+)\d+/g, '$1somenumber');
+    }
   })).listen(1337);
 });
 after(function (done) {
