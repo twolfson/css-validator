@@ -14,7 +14,6 @@ before(function () {
         'content-type': info.headers['content-type'].replace(/(\-+)\d+/, '$1somenumber')
       }, info.headers);
       info.body = info.body.replace(/(\-+)\d+/g, '$1somenumber');
-      console.log('hey', info);
     }
   })).listen(1337);
 });
@@ -25,7 +24,6 @@ after(function (done) {
 function runValidateCss() {
   before(function (done) {
     var that = this;
-    this.timeout(10000);
     validateCss({
       text: this.css,
       w3cUrl: 'http://localhost:1337/css-validator/validator'
