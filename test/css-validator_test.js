@@ -3,18 +3,14 @@ var _ = require('underscore');
 var expect = require('chai').expect;
 var express = require('express');
 var eightTrack = require('eight-track');
+var normalizeMultipart = require('eight-track-normalize-multipart');
 var validateCss = require('../');
 
 before(function () {
   this.fakeJigsaw = express().use(eightTrack({
     url: 'http://jigsaw.w3.org',
     fixtureDir: __dirname + '/test-files/fake-jigsaw/',
-    normalizeFn: function (info) {
-      info.headers = _.defaults({
-        'content-type': info.headers['content-type'].replace(/(\-+)\d+/, '$1somenumber')
-      }, info.headers);
-      info.body = info.body.replace(/(\-+)\d+/g, '$1somenumber');
-    }
+    normalizeFn: normalizeMultipart
   })).listen(1337);
 });
 after(function (done) {
