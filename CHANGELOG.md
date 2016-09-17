@@ -1,4 +1,6 @@
 # css-validator changelog
+0.5.2 - Added `foundry` for consitent releases
+
 0.5.1 - Moved to `eight-track` for HTTP fixtures over `nock`
 
 0.5.0 - Broke up code further, moved XmlParser and ValidationStream to Duplex, and emitting result as `data` event

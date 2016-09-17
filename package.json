@@ -1,7 +1,7 @@
 {
   "name": "css-validator",
   "description": "Validate CSS via W3C's service",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "homepage": "https://github.com/twolfson/css-validator",
   "author": {
     "name": "Todd Wolfson",
@@ -35,19 +35,28 @@
     "form-data": "~0.1.2"
   },
   "devDependencies": {
-    "mocha": "~1.11.0",
+    "chai": "~1.8.1",
+    "eight-track": "~1.3.0",
+    "eight-track-normalize-multipart": "~0.1.0",
+    "express": "~3.4.8",
+    "foundry": "~4.3.2",
+    "foundry-release-git": "~2.0.2",
+    "foundry-release-npm": "~2.0.2",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-watch": "~0.4.0",
-    "chai": "~1.8.1",
-    "express": "~3.4.8",
-    "eight-track": "~1.3.0",
-    "underscore": "~1.5.2",
-    "eight-track-normalize-multipart": "~0.1.0"
+    "mocha": "~1.11.0",
+    "underscore": "~1.5.2"
   },
   "keywords": [
     "css",
     "validate",
     "w3c"
-  ]
+  ],
+  "foundry": {
+    "releaseCommands": [
+      "foundry-release-git",
+      "foundry-release-npm"
+    ]
+  }
 }
