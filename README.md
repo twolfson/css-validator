@@ -13,6 +13,7 @@ Install the module with: `npm install css-validator`
 
 ```js
 var validateCss = require('css-validator');
+var assert = require('assert');
 validateCss({text: 'a { color: blue; }'}, function (err, data) {
   assert.strictEqual(data.validity, true);
   assert.deepEqual(data.errors, []);
@@ -79,7 +80,7 @@ The stream will emit the following events:
 
 ## Examples
 ```js
-var cssValidate = require('css-validate');
+var cssValidate = require('css-validator');
 var css = [
   "body {",
   "  background: url(ab'cd');",
