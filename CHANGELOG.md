@@ -1,4 +1,6 @@
 # css-validator changelog
+0.5.3 - Repaired mistakes in README. Fixes #3 and #4
+
 0.5.2 - Added `foundry` for consitent releases
 
 0.5.1 - Moved to `eight-track` for HTTP fixtures over `nock`
