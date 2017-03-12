@@ -25,6 +25,9 @@
   "engines": {
     "node": ">= 0.8.0"
   },
+  "bin": {
+    "css-validator": "bin/css-validator"
+  },
   "scripts": {
     "test": "mocha"
   },

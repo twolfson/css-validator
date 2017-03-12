@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+`echo eval exec node $(printf %q\  "$0" "$@")`
+const fs = require('fs')
+const validateCss = require('css-validator')
+
+validateCss({text: fs.readFileSync(process.argv[2])}, (err, data) => {
+  if (err) console.error(err)
+  if (data.errors.length) console.error(data.errors)
+  if (data.warnings.length) console.error(data.warnings)
+
+  process.exit(err || !data.validity || data.errors || data.warnings)
+})
