@@ -29,7 +29,7 @@
     "css-validator": "bin/css-validator"
   },
   "scripts": {
-    "lint": "twolfson-style lib/ test/",
+    "lint": "twolfson-style lint bin/ lib/ test/",
     "test": "mocha && npm run lint"
   },
   "dependencies": {

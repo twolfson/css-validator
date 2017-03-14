@@ -1,5 +1,4 @@
 var fs = require('fs');
-var _ = require('underscore');
 var expect = require('chai').expect;
 var express = require('express');
 var eightTrack = require('eight-track');
