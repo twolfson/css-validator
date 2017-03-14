@@ -84,6 +84,23 @@ The stream will emit the following events:
 
 [`DuplexStream`]: https://github.com/isaacs/readable-stream#class-streamduplex
 
+### CLI
+`css-validator` offers a command line interface for validation:
+
+```
+$ css-validator --help
+
+  Usage: css-validator [options] <filepath ...>
+
+  Options:
+
+    -h, --help                   output usage information
+    -V, --version                output the version number
+    --w3c-url <url>              URL to validate against. Default is http://jigsaw.w3.org/css-validator/validator
+    --delay <ms>                 Delay between validation requests to avoid service blacklisting, defaults to 100ms
+    --concurrency <concurrency>  Amount of requests to run in parallel, defaults to 1
+```
+
 ## Examples
 ```js
 var cssValidate = require('css-validator');
