@@ -11,23 +11,53 @@ function cliParse(argv, cb) {
       stderr += output + '\n';
     }
   };
-  cli._parse(argv, mockConsole, function handleParse (err, status) {
-    cb(err, status, stderr);
+  before(function cliParseFn (done) {
+    var that = this;
+    cli._parse(argv, mockConsole, function handleParse (err, status) {
+      that.err = err;
+      that.status = status;
+      that.stderr = stderr;
+      done();
+    });
+  });
+  after(function cleanup () {
+    delete this.err;
+    delete this.status;
+    delete this.stderr;
   });
 }
 
 describe('A valid CSS file processed by our CLI', function () {
   FakeJigsaw.run();
+  cliParse([
+    'node', 'css-validator', __dirname + '/test-files/valid.css',
+    '--w3c-url',  FakeJigsaw.w3cUrl
+  ]);
 
-  it('has no errors', function (done) {
-    cliParse([
-      'node', 'css-validator', __dirname + '/test-files/valid.css',
-      '--w3c-url',  FakeJigsaw.w3cUrl
-    ], function cliParse (err, status, stderr) {
-      expect(err).to.equal(null);
-      expect(status).to.equal(0);
-      expect(stderr).to.equal('');
-      done();
-    });
+  it('has no errors', function () {
+    expect(this.err).to.equal(null);
+    expect(this.status).to.equal(0);
+    expect(this.stderr).to.equal('');
+  });
+});
+
+describe('An invalid CSS file processed by our CLI', function () {
+  FakeJigsaw.run();
+  cliParse([
+    'node', 'css-validator', __dirname + '/test-files/invalid.css',
+    '--w3c-url',  FakeJigsaw.w3cUrl
+  ]);
+
+  it('has no unexpected errors (e.g. bad URL)', function () {
+    expect(this.err).to.equal(null);
+    expect(this.status).to.equal(2);
+  });
+
+  it('outputs our expected error', function () {
+    expect(this.stderr).to.contain('background-color');
+  });
+
+  it('outputs our expected warning', function () {
+    expect(this.stderr).to.contain('-moz-box-sizing');
   });
 });
