@@ -1,7 +1,7 @@
 {
   "name": "css-validator",
   "description": "Validate CSS via W3C's service",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "homepage": "https://github.com/twolfson/css-validator",
   "author": {
     "name": "Todd Wolfson",

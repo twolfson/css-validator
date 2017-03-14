@@ -1,4 +1,6 @@
 # css-validator changelog
+0.7.0 - Added CLI via @niedzielski in #5
+
 0.6.0 - Moved from Grunt linting to `twolfson-style`
 
 0.5.3 - Repaired mistakes in README. Fixes #3 and #4
