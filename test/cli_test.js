@@ -16,7 +16,7 @@ function cliParse(argv, cb) {
   });
 }
 
-describe.only('A valid CSS file processed by our CLI', function () {
+describe('A valid CSS file processed by our CLI', function () {
   FakeJigsaw.run();
 
   it('has no errors', function (done) {
