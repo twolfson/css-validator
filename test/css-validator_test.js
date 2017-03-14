@@ -1,22 +1,11 @@
+// Load in our dependencies
 var fs = require('fs');
 var expect = require('chai').expect;
-var express = require('express');
-var eightTrack = require('eight-track');
-var normalizeMultipart = require('eight-track-normalize-multipart');
 var validateCss = require('../');
-
-before(function () {
-  this.fakeJigsaw = express().use(eightTrack({
-    url: 'http://jigsaw.w3.org',
-    fixtureDir: __dirname + '/test-files/fake-jigsaw/',
-    normalizeFn: normalizeMultipart
-  })).listen(1337);
-});
-after(function (done) {
-  this.fakeJigsaw.close(done);
-});
+var FakeJigsaw = require('./utils/fake-jigsaw');
 
 function runValidateCss() {
+  FakeJigsaw.run();
   before(function (done) {
     var that = this;
     validateCss({
