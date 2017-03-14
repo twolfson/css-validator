@@ -1,7 +1,7 @@
 {
   "name": "css-validator",
   "description": "Validate CSS via W3C's service",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "homepage": "https://github.com/twolfson/css-validator",
   "author": {
     "name": "Todd Wolfson",
@@ -23,13 +23,14 @@
   ],
   "main": "lib/css-validator",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 4.0.0"
   },
   "bin": {
     "css-validator": "bin/css-validator"
   },
   "scripts": {
-    "test": "mocha"
+    "lint": "twolfson-style lib/ test/",
+    "test": "mocha && npm run lint"
   },
   "dependencies": {
     "commander": "~2.9.0",
@@ -40,19 +41,18 @@
     "sleep": "~5.1.0"
   },
   "devDependencies": {
-    "chai": "~1.8.1",
+    "chai": "~3.5.0",
     "eight-track": "~1.3.0",
     "eight-track-normalize-multipart": "~0.1.0",
     "express": "~3.4.8",
     "foundry": "~4.3.2",
     "foundry-release-git": "~2.0.2",
     "foundry-release-npm": "~2.0.2",
-    "grunt": "~0.4.1",
-    "grunt-cli": "~1.2.0",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-watch": "~0.4.0",
-    "mocha": "~1.11.0",
-    "underscore": "~1.5.2"
+    "jscs": "~3.0.7",
+    "jshint": "~2.9.4",
+    "mocha": "~3.2.0",
+    "twolfson-style": "~1.6.1",
+    "underscore": "~1.8.3"
   },
   "keywords": [
     "css",
