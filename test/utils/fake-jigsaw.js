@@ -4,6 +4,7 @@ var eightTrack = require('eight-track');
 var normalizeMultipart = require('eight-track-normalize-multipart');
 
 // Define our helpers
+exports.w3cUrl = 'http://localhost:1337/css-validator/validator';
 exports.run = function () {
   before(function () {
     this.fakeJigsaw = express().use(eightTrack({
