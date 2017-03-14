@@ -33,12 +33,12 @@
     "test": "mocha && npm run lint"
   },
   "dependencies": {
+    "async": "~2.1.5",
     "commander": "~2.9.0",
     "form-data": "~0.1.2",
     "obj-extend": "~0.1.0",
     "readable-stream": "~1.1.9",
-    "sax": "~0.5.5",
-    "sleep": "~5.1.0"
+    "sax": "~0.5.5"
   },
   "devDependencies": {
     "chai": "~3.5.0",
