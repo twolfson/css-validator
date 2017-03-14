@@ -38,7 +38,8 @@
     "form-data": "~0.1.2",
     "obj-extend": "~0.1.0",
     "readable-stream": "~1.1.9",
-    "sax": "~0.5.5"
+    "sax": "~0.5.5",
+    "underscore": "~1.8.3"
   },
   "devDependencies": {
     "chai": "~3.5.0",
@@ -51,8 +52,7 @@
     "jscs": "~3.0.7",
     "jshint": "~2.9.4",
     "mocha": "~3.2.0",
-    "twolfson-style": "~1.6.1",
-    "underscore": "~1.8.3"
+    "twolfson-style": "~1.6.1"
   },
   "keywords": [
     "css",
