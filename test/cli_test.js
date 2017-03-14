@@ -54,10 +54,11 @@ describe('An invalid CSS file processed by our CLI', function () {
   });
 
   it('outputs our expected error', function () {
+    expect(this.stderr).to.contain('invalid.css:2:');
     expect(this.stderr).to.contain('background-color');
   });
 
   it('outputs our expected warning', function () {
-    expect(this.stderr).to.contain('-moz-box-sizing');
+    expect(this.stderr).to.contain('invalid.css:3:\n    Property -moz-box-sizing');
   });
 });
