@@ -19,6 +19,12 @@ function runValidateCss() {
   });
 }
 
+function expectValid(data) {
+  expect(data.validity).to.equal(true);
+  expect(data.errors).to.deep.equal([]);
+  expect(data.warnings).to.deep.equal([]);
+}
+
 describe('A valid CSS file', function () {
   before(function () {
     this.css = fs.readFileSync(__dirname + '/test-files/valid.css', 'utf8');
@@ -28,9 +34,21 @@ describe('A valid CSS file', function () {
     runValidateCss();
 
     it('has no errors', function () {
-      expect(this.data.validity).to.equal(true);
-      expect(this.data.errors).to.deep.equal([]);
-      expect(this.data.warnings).to.deep.equal([]);
+      expectValid(this.data);
+    });
+  });
+});
+
+describe('An empty CSS file', function () {
+  before(function () {
+    this.css = '';
+  });
+
+  describe.skip('when validated', function () {
+    runValidateCss();
+
+    it('has no errors', function () {
+      expectValid(this.data);
     });
   });
 });
