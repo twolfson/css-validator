@@ -51,6 +51,22 @@ describe('An empty CSS file', function () {
   });
 });
 
+describe('A blank CSS file', function () {
+  before(function () {
+    this.css = ' ';
+  });
+
+  describe('when validated', function () {
+    runValidateCss();
+
+    it('has no errors', function () {
+      expect(this.data.validity).to.equal(true);
+      expect(this.data.errors).to.deep.equal([]);
+      expect(this.data.warnings).to.deep.equal([]);
+    });
+  });
+});
+
 describe('A invalid CSS file', function () {
   before(function () {
     this.css = fs.readFileSync(__dirname + '/test-files/invalid.css', 'utf8');
