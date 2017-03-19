@@ -5,12 +5,12 @@ var normalizeMultipart = require('eight-track-normalize-multipart');
 
 // Define our helpers
 exports.w3cUrl = 'http://localhost:1337/css-validator/validator';
-exports.run = function () {
+exports.run = function (options) {
   before(function () {
     this.fakeJigsaw = express().use(eightTrack({
       url: 'http://jigsaw.w3.org',
       fixtureDir: __dirname + '/../test-files/fake-jigsaw/',
-      normalizeFn: normalizeMultipart
+      normalizeFn: options.multipart ? normalizeMultipart : null
     })).listen(1337);
   });
   after(function (done) {

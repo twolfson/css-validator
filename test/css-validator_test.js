@@ -6,8 +6,7 @@ var validateCss = require('../');
 var FakeJigsaw = require('./utils/fake-jigsaw');
 
 // Define our test helper
-function runValidateCss(paramsFn) {
-  FakeJigsaw.run();
+function _runValidateCss(paramsFn) {
   before(function (done) {
     var that = this;
     var params = paramsFn();
@@ -20,10 +19,18 @@ function runValidateCss(paramsFn) {
     });
   });
 }
+function runValidateCssText(paramsFn) {
+  FakeJigsaw.run({multipart: true});
+  _runValidateCss(paramsFn);
+}
+function runValidateCssUri(paramsFn) {
+  FakeJigsaw.run({multipart: false});
+  _runValidateCss(paramsFn);
+}
 
 // Define our tests
 describe('A valid CSS file being validated', function () {
-  runValidateCss(function () {
+  runValidateCssText(function () {
     return {
       text: fs.readFileSync(__dirname + '/test-files/valid.css', 'utf8')
     };
@@ -37,7 +44,7 @@ describe('A valid CSS file being validated', function () {
 });
 
 describe('A invalid CSS file being validated', function () {
-  runValidateCss(function () {
+  runValidateCssText(function () {
     return {
       text: fs.readFileSync(__dirname + '/test-files/invalid.css', 'utf8')
     };
@@ -61,7 +68,7 @@ describe('A invalid CSS file being validated', function () {
 });
 
 describe('A valid CSS URI being validated', function () {
-  runValidateCss(function () {
+  runValidateCssUri(function () {
     return {
       uri: 'https://cdn.rawgit.com/twolfson/css-validator/0.7.0/test/test-files/valid.css'
     };
@@ -75,7 +82,7 @@ describe('A valid CSS URI being validated', function () {
 });
 
 describe('A invalid CSS URI being validated', function () {
-  runValidateCss(function () {
+  runValidateCssUri(function () {
     return {
       uri: 'https://cdn.rawgit.com/twolfson/css-validator/0.7.0/test/test-files/invalid.css'
     };
@@ -100,7 +107,7 @@ describe('A invalid CSS URI being validated', function () {
 
 // Edge cases
 describe('An empty CSS file being validated', function () {
-  runValidateCss(function () {
+  runValidateCssText(function () {
     return {text: ''};
   });
 
@@ -112,7 +119,7 @@ describe('An empty CSS file being validated', function () {
 });
 
 describe('A blank CSS file being validated', function () {
-  runValidateCss(function () {
+  runValidateCssText(function () {
     return {text: ' '};
   });
 

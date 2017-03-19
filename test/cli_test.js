@@ -28,7 +28,7 @@ function cliParse(argv, cb) {
 }
 
 describe('A valid CSS file processed by our CLI', function () {
-  FakeJigsaw.run();
+  FakeJigsaw.run({multipart: true});
   cliParse([
     'node', 'css-validator', __dirname + '/test-files/valid.css',
     '--w3c-url',  FakeJigsaw.w3cUrl
@@ -42,7 +42,7 @@ describe('A valid CSS file processed by our CLI', function () {
 });
 
 describe('An invalid CSS file processed by our CLI', function () {
-  FakeJigsaw.run();
+  FakeJigsaw.run({multipart: true});
   cliParse([
     'node', 'css-validator', __dirname + '/test-files/invalid.css',
     '--w3c-url',  FakeJigsaw.w3cUrl
