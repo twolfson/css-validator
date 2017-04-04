@@ -11,6 +11,13 @@ This was created to validate CSS inside of the [json2css][] test suite.
 ## Getting Started
 Install the module with: `npm install css-validator`
 
+### Command Line
+```sh
+echo 'a { color: pink; }' > styles.css
+css-validator styles.css
+```
+
+### JavaScript
 ```js
 var validateCss = require('css-validator');
 var assert = require('assert');
