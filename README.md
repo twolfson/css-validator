@@ -99,6 +99,18 @@ $ css-validator --help
     --w3c-url <url>              URL to validate against. Default is http://jigsaw.w3.org/css-validator/validator
     --delay <ms>                 Delay between validation requests to avoid service blacklisting, defaults to 100ms
     --concurrency <concurrency>  Amount of requests to run in parallel, defaults to 1
+    --usermedium <usermedium>    Medium where the CSS will be used, defaults to `all`. Possible values are `aural`,
+                                 `braille`, `embossed`, `handheld`, `print`, `presentation`, `projection`, `screen`,
+                                 `tty`, `tv`
+    --profile <profile>          CSS profile to use for validation. Defaults to `css3svg`. Supported values:
+                                 `css1`, `css2`, `css21`, `css3`, `css3svg`, `svg`, `svgbasic`, `svgtiny`, `mobile`,
+                                 `atsc-tv`, `tv`, `none`
+    --lang <lang>                Language to use in response. Default is `en`. Other supported: 
+                                 `bg`, `de`, `el`, `es`, `fa`, `fr`, `hi`, `it`, `ja`, `ko`, `nl`,
+                                 `pl-PL`, `pb-BR`, `ro`, `ru`, `sv`, `uk`, `zh-cn`
+    --warning <warning>          Warning level to set. Default is `2`, allowed: `0`, `1`, `2`, `no`
+    --vextwarning <vextwarning>  Allow vendor extensions to just show up as warnings. Default is `false`
+                                 Possible values are: `true`, `false`
 ```
 
 ## Examples
