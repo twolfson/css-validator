@@ -39,12 +39,13 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
         - Reference: http://jigsaw.w3.org/css-validator/manual.html#api
     - uri `null|String` - URL of document to validate. CSS and HTML documents are allowed
     - text `null|String` - CSS to validate
-    - usermedium `String` - Medium where the CSS will be used (e.g. `screen`, `print`, `braille`). Default is `all`.
-    - profile `String` - CSS profile to use for validation. Default is `css3`.
+    - usermedium `String` - Medium where the CSS will be used. Default is `all`.
+        - Possible values: `aural`, `braille`, `embossed`, `handheld`, `print`, `presentation`, `projection`, `screen`, `tty`, `tv`
+    - profile `String` - CSS profile to use for validation. Default is `css3svg`.
         - Possible values are
-         `css1`, `css2`, `css21`, `css3`, `svg`, `svgbasic`, `svgtiny`, `mobile`, `atsc-tv`, `tv`, `none`
+         `css1`, `css2`, `css21`, `css3`, `css3svg`, `svg`, `svgbasic`, `svgtiny`, `mobile`, `atsc-tv`, `tv`, `none`
     - lang `String` - Language to use in response. Default is `en`
-        - Possible values are `en`, `fr`, `it`, `ko`, `ja`, `es`, `zh-cn`, `nl`, `de`, `it`, `pl`
+        - Possible values are `en`, `bg`, `de`,  `el`, `es`, `fa`, `fr`, `hi`, `it`, `ja`, `ko`, `nl`, `pl-PL`, `pb-BR`, `ro`, `ru`, `sv`, `uk` `zh-cn`
     - warning `Number|String` - Warning level to set. Default is `2`
         - If set to `no`, no warnings will be returned
         - If set to `0`, less warnings will be returned
