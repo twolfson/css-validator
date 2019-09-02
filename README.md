@@ -49,6 +49,8 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
         - If set to `no`, no warnings will be returned
         - If set to `0`, less warnings will be returned
         - If set to `1` or `2`, more warnings will be returned
+    - vextwarning `String|Boolean` — Allow vendor extensions to just show up as warnings. Default is `false`
+        - Possible values are: `true`, `false`
 - cb `null|Function` - Error first callback with `function (err, data) {}` signature
     - err `null|Error` - If there was a connetivity error, this will be it
     - data `null|Object` - Container for response from [jigsaw][]
