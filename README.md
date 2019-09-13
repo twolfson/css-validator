@@ -39,16 +39,20 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
         - Reference: http://jigsaw.w3.org/css-validator/manual.html#api
     - uri `null|String` - URL of document to validate. CSS and HTML documents are allowed
     - text `null|String` - CSS to validate
-    - usermedium `String` - Medium where the CSS will be used (e.g. `screen`, `print`, `braille`). Default is `all`.
-    - profile `String` - CSS profile to use for validation. Default is `css3`.
-        - Possible values are
-         `css1`, `css2`, `css21`, `css3`, `svg`, `svgbasic`, `svgtiny`, `mobile`, `atsc-tv`, `tv`, `none`
-    - lang `String` - Language to use in response. Default is `en`
-        - Possible values are `en`, `fr`, `it`, `ko`, `ja`, `es`, `zh-cn`, `nl`, `de`, `it`, `pl`
+    - usermedium `String` - Medium where the CSS will be used (e.g. `all`, `print`, `screen`)
+        - Service's default value: `all`
+    - profile `String` - CSS profile to use for validation (e.g. `css3svg`, `css21`, `svg`)
+        - Service's default value: `css3svg`
+    - lang `String` - Language to use in response (e.g. `en`, `bg`, `de`)
+        - Service's default value: `en`
     - warning `Number|String` - Warning level to set. Default is `2`
+        - Service's default value: `2`
         - If set to `no`, no warnings will be returned
         - If set to `0`, less warnings will be returned
         - If set to `1` or `2`, more warnings will be returned
+    - vextwarning `String|Boolean` - Allow vendor extensions to just show up as warnings
+        - Possible values: `false`, `true`
+        - Service's default value: `false`
 - cb `null|Function` - Error first callback with `function (err, data) {}` signature
     - err `null|Error` - If there was a connetivity error, this will be it
     - data `null|Object` - Container for response from [jigsaw][]
@@ -99,18 +103,11 @@ $ css-validator --help
     --w3c-url <url>              URL to validate against. Default is http://jigsaw.w3.org/css-validator/validator
     --delay <ms>                 Delay between validation requests to avoid service blacklisting, defaults to 100ms
     --concurrency <concurrency>  Amount of requests to run in parallel, defaults to 1
-    --usermedium <usermedium>    Medium where the CSS will be used, defaults to `all`. Possible values are `aural`,
-                                 `braille`, `embossed`, `handheld`, `print`, `presentation`, `projection`, `screen`,
-                                 `tty`, `tv`
-    --profile <profile>          CSS profile to use for validation. Defaults to `css3svg`. Supported values:
-                                 `css1`, `css2`, `css21`, `css3`, `css3svg`, `svg`, `svgbasic`, `svgtiny`, `mobile`,
-                                 `atsc-tv`, `tv`, `none`
-    --lang <lang>                Language to use in response. Default is `en`. Other supported: 
-                                 `bg`, `de`, `el`, `es`, `fa`, `fr`, `hi`, `it`, `ja`, `ko`, `nl`,
-                                 `pl-PL`, `pb-BR`, `ro`, `ru`, `sv`, `uk`, `zh-cn`
-    --warning <warning>          Warning level to set. Default is `2`, allowed: `0`, `1`, `2`, `no`
-    --vextwarning <vextwarning>  Allow vendor extensions to just show up as warnings. Default is `false`
-                                 Possible values are: `true`, `false`
+    --usermedium <usermedium>    Medium where the CSS will be used (e.g. `all` (service default), `print`, `screen`)
+    --profile <profile>          CSS profile to use for validation (e.g. `css3svg` (service default), `css21`, `svg`)
+    --lang <lang>                Language to use in response (e.g. `en` (service default), `bg`, `de`)
+    --warning <warning>          Warning level to set (e.g. `0`, `1`, `2` (service default), `no`)
+    --vextwarning <vextwarning>  Allow vendor extensions to just show up as warnings. Possible values are: `true`, `false` (service default)
 ```
 
 ## Examples
