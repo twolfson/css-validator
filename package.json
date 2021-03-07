@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "async": "~3.2.0",
-    "commander": "~2.9.0",
+    "commander": "~7.1.0",
     "form-data": "~4.0.0",
     "obj-extend": "~0.1.0",
     "readable-stream": "~3.6.0",
