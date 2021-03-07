@@ -1,4 +1,6 @@
 # css-validator changelog
+0.10.0 - Upgraded dependencies, fixed delay, and updated fixtures via @antongolub in #18
+
 0.9.0 - Added more CLI validation options via @antongolub in #17
 
 0.8.1 - Upgraded to express@3.21.2 to fix GitHub vulnerability warning
