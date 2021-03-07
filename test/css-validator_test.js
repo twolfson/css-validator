@@ -70,7 +70,7 @@ describe('A invalid CSS file being validated', function () {
 describe('A valid CSS URI being validated', function () {
   runValidateCssUri(function () {
     return {
-      uri: 'https://cdn.rawgit.com/twolfson/css-validator/0.7.0/test/test-files/valid.css'
+      uri: 'https://gitcdn.link/repo/twolfson/css-validator/0.7.0/test/test-files/valid.css'
     };
   });
 
@@ -84,7 +84,7 @@ describe('A valid CSS URI being validated', function () {
 describe('A invalid CSS URI being validated', function () {
   runValidateCssUri(function () {
     return {
-      uri: 'https://cdn.rawgit.com/twolfson/css-validator/0.7.0/test/test-files/invalid.css'
+      uri: 'https://gitcdn.link/repo/twolfson/css-validator/0.7.0/test/test-files/invalid.css'
     };
   });
 
