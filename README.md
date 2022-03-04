@@ -37,7 +37,7 @@ Validate CSS against [W3C's Jigsaw validation service][jigsaw]
     - w3cUrl `String` - URL to validate against. Default is http://jigsaw.w3.org/css-validator/validator
     - The following options from the validator itself
         - Reference: http://jigsaw.w3.org/css-validator/manual.html#api
-    - uri `null|String` - URL of document to validate. CSS and HTML documents are allowed
+    - uri `null|String` - URL of document to validate. CSS and HTML documents are allowed. Supports http and https protocols.
     - text `null|String` - CSS to validate
     - usermedium `String` - Medium where the CSS will be used (e.g. `all`, `print`, `screen`)
         - Service's default value: `all`
